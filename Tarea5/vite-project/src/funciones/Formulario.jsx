@@ -108,10 +108,7 @@ instantáneo. Lo que muestre value va a ser igual al estado actual*/
                  ENVIAR
         </button>
         </div>
-        <div>
-            <h6>Creado por Luma2001</h6>
-            
-        </div>
+        
     </div>
   )
 }
