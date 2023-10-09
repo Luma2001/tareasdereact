@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import Tasks from './Tasks/Tasks';
 import Header from './header/Header';
 import { Form } from './Form/Form';
+import TasksList from './Tasks/TasksList';
 
 
 //USO DE MOCK:Creo un objeto de prueba del array que necesito
@@ -39,6 +40,7 @@ const ToDoList = () => {
         title: title,
         completed: false,
     })
+
     //Creo la función que voy a pasar como callback al componente Form para evitar que modifique el setTasks
     const addTask =(form)=>{//una forma de resolver la problematica con el setTasks
         const newTask = createTask(form.title);
@@ -47,7 +49,24 @@ const ToDoList = () => {
         console.log(tasks);
     }
 
-    
+    //creo una funcion para colocar como completada una tarea
+    const completeTask = (id)=>{
+        //usando draft para no mutar tasks
+        const draft = structuredClone(tasks);
+        const task = draft.find((task)=>task.id===id);
+        task.completed = !task.completed;
+        setTasks(draft);//ahora modifico estado correctamente porque mute un clon y actualizo estado con setTask
+        //console.log(id);
+    };
+
+    //creo una funcion para borrar una tarea
+    const deleteTask = (id)=>{
+        const newTasks=tasks.filter((task)=>task.id!==id);
+        setTasks(newTasks); //Aparecen todas las tareas que tengan un id distinto al id pasado
+    }
+
+        
+        
 //MAQUETACION DEL VIEW
   return (
     <div>
@@ -65,27 +84,11 @@ const ToDoList = () => {
                 />
             </section>
 
-            <section id='taskList'>
-                {tasks.map((task) => {
-                    return(
-                        <Tasks 
-                            key={task.id}
-                            title= {task.title}
-                            completed= {task.completed}
-                        />
-                        
-                        /* Coloco todo esto en un nuevo componente llamado Tasks.jsx y lo importo
-                        <div key={task.id}>
-                            <p>
-                                <span>{task.title} </span>
-                                <span>{task.completed ? "completed" : "to Do"}</span>
-                            </p>
-                        </div>
-                        */
-                    );
-                    })
-                }
-            </section>       
+        <TasksList
+            tasks ={tasks}
+            completeTask={completeTask}
+            deleteTask={deleteTask}
+        />
     </div>
   );
 };

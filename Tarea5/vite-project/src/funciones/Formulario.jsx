@@ -19,8 +19,10 @@ const Formulario = () => {
         group:"",
         email:"",//al principio no valen nada. Los campos están vacío
         password:"",
-        check:"",//hay que usar checked en vez value, falta hacer
     });
+
+//creo un useState para checkbox
+    const [check,setCheck]=useState(true);    
 
     const handleChange =(e)=>{
         //setForm(e.target.value); uso este cuando tengo una sola variable
@@ -32,6 +34,15 @@ const Formulario = () => {
         })
         console.log(name, value);
     };
+
+    const handleChangebox =(data)=>{
+        if(data=="check"){
+            if (check==true){
+                console.log(data, "Sí, sigue asistiendo")
+            }
+            setCheck(!check)
+        }
+    }
 /*Formulario Controlado: debo asegurarme que lo que ingrese 
 el usuario sea lo mismo que tengo guardado en memoria.
 Para ello igualo el value al estado actual y así creo un feedback
@@ -93,11 +104,9 @@ instantáneo. Lo que muestre value va a ser igual al estado actual*/
         <input 
                 name="check"
                 type='checkbox'
-                onChange={handleChange} 
-                value={form.check}
-        />  
-        <p>Sigue asistiendo a clases de REACT.
-        </p> 
+                onChange={()=>handleChangebox("check")} 
+                value={check}
+        /> Sigue asistiendo a clases de REACT. 
         </div>
 
         <div>
