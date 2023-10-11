@@ -2,6 +2,7 @@ import React, {useEffect,useState} from 'react'
 
 const TheCatApi = () => {
     const[cats,setCats] = useState([]);//siempre que tenga que renderizar necesito useState
+    const [count,setCount] =useState(0);
     const[error,setError] = useState(null);//Para saber cuando hay un error
     const[loading,setLoading] = useState(false);//Para saber cuando está cargando
 
@@ -40,14 +41,14 @@ const TheCatApi = () => {
 
 
 
-    },[]); //Fin useEffect. en este casa se ejecuta una vez en el montaje
+    },[count]); //Fin useEffect. en este casa se ejecuta una vez en el montaje
 
 
 
 
   return (
     <div>
-        {loading && <h1>Cargando...</h1>}
+        {loading && <h6>Cargando...</h6>}
         {error && <h1>{error}</h1>}
         <h2>Tarea 7: THE CAT API de LUMA</h2>
         
@@ -55,8 +56,11 @@ const TheCatApi = () => {
                 return(
                     <div key={cat.id}>
 
-                        <img className='card' src={cat.url}/>
-                        
+                        <p><img className='card' src={cat.url}/></p>
+                        <button onClick={() => {
+                            setCount(count + 1);
+                            }}>REFRESH
+                        </button>
                     </div>
                     
                 )
