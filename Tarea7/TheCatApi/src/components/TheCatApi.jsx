@@ -2,7 +2,7 @@ import React, {useEffect,useState} from 'react'
 
 const TheCatApi = () => {
     const[cats,setCats] = useState([]);//siempre que tenga que renderizar necesito useState
-    const [count,setCount] =useState(0);
+    const [count,setCount] =useState(0);//lo uso para actualizar la página y me muestre otr gatito
     const[error,setError] = useState(null);//Para saber cuando hay un error
     const[loading,setLoading] = useState(false);//Para saber cuando está cargando
 
@@ -41,7 +41,9 @@ const TheCatApi = () => {
 
 
 
-    },[count]); //Fin useEffect. en este casa se ejecuta una vez en el montaje
+    },[count]); //Fin useEffect. Si el array está vacío se ejecuta una vez en el montaje,
+                //               Si el array no está vacío se ejecuta en montaje y actualización.
+                //               En es este caso cada vez que se modifica el estado de count.
 
 
 
