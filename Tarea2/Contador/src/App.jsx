@@ -6,6 +6,8 @@ const App =() =>{
 return (
 <>
   <Contador/>
+  <Contador/>
+  <Contador/>
 
 </>
 
@@ -13,5 +15,6 @@ return (
 
 }
 
-
+//podemos llamar varias veces al contador, notar que sus estados no son compartidos, son independientes
+//para que sean compartidos debemos usar context
 export default App
