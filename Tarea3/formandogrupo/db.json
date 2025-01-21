@@ -1,0 +1,53 @@
+{"miembros" : [
+    {
+     " id":1,    
+      "name": "Luciana - Luma",
+      "age": 46,
+      "email": "lumaqui2001@yahoo.com.ar",
+      "fecha":"",
+      "rol":"estudiante",
+      "newsletter":"no",
+      "genero":"femenino"
+    },
+    {
+      " id":2, 
+      "name": "Mariano",
+      "age": 40,
+      "email": "marianomercevich@gmail.com",
+     " fecha":"",
+      "rol":"estudiante",
+      "newsletter":"no",
+     " genero":"masculino"
+    },
+    {
+      " id":3,     
+      "name": "Gabriela - Gaby",
+      "age": 36,
+      "email": "gabbygag22@gmail.com",
+     " fecha":"",
+      "rol":"visitante",
+      "newsletter":"no",
+     " genero":"femenino"
+    },
+    {
+      " id":4, 
+      "name": "Diego",
+      "age": 42,
+      "email": "dflinares84@gmail.com",
+     " fecha":"",
+      "rol":"estudiante",
+      "newsletter":"no",
+     " genero":"masculino"
+    },
+    {
+      " id":5,     
+      "name": "Isabel - Isa",
+      "age": 40,
+      "email": "isabel.bracho@gmail.com",
+     " fecha":"",
+      "rol":"estudiante",
+      "newsletter":"si",
+     " genero":"femenino"
+    }
+  ]
+}
